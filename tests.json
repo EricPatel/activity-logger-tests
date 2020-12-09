@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a4b1112e-216e-480c-a7a6-526e0c5dec78",
+		"_postman_id": "62348c2e-aad5-4491-86bb-4101bdd91c69",
 		"name": "Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -16,7 +16,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f8a310e0-baae-4979-9c73-725a5754ac88",
+						"id": "17c1dc3a-4591-4cc0-98e2-c9154f7163fd",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -72,7 +72,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5fdf082a-80a7-47bf-a7af-f9cc027b980d",
+						"id": "3fcfa79d-1bc2-4fed-9526-f89ad16aa473",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -124,7 +124,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4dcd9630-a576-4260-9557-073b05e393ff",
+						"id": "8c24f201-cce5-4e4e-90e8-7f6621680f0d",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -166,7 +166,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "556ba5b3-08ea-43e9-9fa7-813e6ba63b0c",
+						"id": "117ca70f-e6bf-4f2f-a671-441c0bc3dae6",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -208,7 +208,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4d7097e3-2b79-455f-9527-e94bcc3a579c",
+						"id": "5cfd2ae7-f4ab-47d7-a4f4-f1063b394672",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -250,7 +250,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f873a7e3-6aa9-47cc-bf9f-a1db7003688c",
+						"id": "c61cbac1-3368-4bd5-9266-4a998661a86a",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -281,6 +281,146 @@
 					"port": "5050",
 					"path": [
 						"removeuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test7",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userEmail\": \"\",\n    \"logID\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5050/pinLogs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"pinLogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test9 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6998c6e7-06e9-4f2f-b187-4f2a620da9e2",
+						"exec": [
+							"tests['Status code is 200'] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody)",
+							"tests['Length of logs is 0'] = jsonData.logs.length === 0;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userEmail\":\"admin1@gmail.com\",\n    \"application\":\"frontend-website\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/getPinnedLogs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getPinnedLogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test8",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userEmail\": \"\",\n    \"logID\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5050/removePinLogs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"removePinLogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test9",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dd67a021-a939-4c4c-a49f-60dfbb211df0",
+						"exec": [
+							"tests['Status code is 200'] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody)",
+							"tests['Length of logs is 0'] = jsonData.logs.length === 0;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userEmail\":\"admin1@gmail.com\",\n    \"application\":\"frontend-website\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/getPinnedLogs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getPinnedLogs"
 					]
 				}
 			},
