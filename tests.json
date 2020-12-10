@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "62348c2e-aad5-4491-86bb-4101bdd91c69",
+		"_postman_id": "8399c458-4ec8-4204-967d-131c75b97b1b",
 		"name": "Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -16,7 +16,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "17c1dc3a-4591-4cc0-98e2-c9154f7163fd",
+						"id": "8b252321-78a1-4210-82a3-e331a36c40b4",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -72,7 +72,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3fcfa79d-1bc2-4fed-9526-f89ad16aa473",
+						"id": "fac19a09-26d1-424a-a7f0-228636950bc1",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -124,7 +124,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8c24f201-cce5-4e4e-90e8-7f6621680f0d",
+						"id": "a5e7135a-8f81-4633-a51f-b8b930bc66d6",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -166,7 +166,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "117ca70f-e6bf-4f2f-a671-441c0bc3dae6",
+						"id": "682430c1-fc0b-4880-a7ee-c998a92fe749",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -208,7 +208,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5cfd2ae7-f4ab-47d7-a4f4-f1063b394672",
+						"id": "de07a286-8a18-488e-8375-a03893aca244",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -250,7 +250,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c61cbac1-3368-4bd5-9266-4a998661a86a",
+						"id": "4f3d6cec-8fc9-49b4-bb7b-265d03b277e9",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;\r",
 							"var jsonData = JSON.parse(responseBody)\r",
@@ -315,48 +315,6 @@
 			"response": []
 		},
 		{
-			"name": "Test9 Copy",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "6998c6e7-06e9-4f2f-b187-4f2a620da9e2",
-						"exec": [
-							"tests['Status code is 200'] = responseCode.code === 200;",
-							"var jsonData = JSON.parse(responseBody)",
-							"tests['Length of logs is 0'] = jsonData.logs.length === 0;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"userEmail\":\"admin1@gmail.com\",\n    \"application\":\"frontend-website\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/getPinnedLogs",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"getPinnedLogs"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Test8",
 			"request": {
 				"method": "POST",
@@ -390,7 +348,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "dd67a021-a939-4c4c-a49f-60dfbb211df0",
+						"id": "8e27739d-427a-4d5e-a22b-222bfebc8c3d",
 						"exec": [
 							"tests['Status code is 200'] = responseCode.code === 200;",
 							"var jsonData = JSON.parse(responseBody)",
@@ -421,6 +379,47 @@
 					"port": "5000",
 					"path": [
 						"getPinnedLogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "97478298-e802-4a8e-8cc5-1d9deee335cd",
+						"exec": [
+							"tests['Status code is 200'] = responseCode.code === 200;\r",
+							"tests['Logs returned in csv format'] = responseBody.length !== 0;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"frontend-website\",\r\n    \"text\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/exportLogs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"exportLogs"
 					]
 				}
 			},
